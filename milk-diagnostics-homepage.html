@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milk Diagnostics | Real-Time Milk Intelligence</title>
+<meta name="description" content="Merlin by Milk Diagnostics delivers inline spectral analysis at every milking — real-time data on butterfat, protein, SCC, progesterone, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --blue:        #1449AE;
+  --blue-dark:   #0D3580;
+  --blue-mid:    #1E55C4;
+  --blue-light:  #E8EFFE;
+  --blue-dim:    rgba(20,73,174,0.08);
+  --yellow:      #F0A941;
+  --yellow-dark: #C8871A;
+  --yellow-light:#FDF3E2;
+  --cream:       #F9F1E6;
+  --cream-dark:  #EFE3CC;
+  --white:       #FFFFFF;
+  --gray-900:    #0F1218;
+  --gray-800:    #1E2229;
+  --gray-700:    #353C47;
+  --gray-600:    #4D5566;
+  --gray-500:    #6B7589;
+  --gray-400:    #9AA3B2;
+  --gray-300:    #C8CDD6;
+  --gray-200:    #E4E7EC;
+  --gray-100:    #F4F5F7;
+  --gray-50:     #FAFBFC;
+
+  --font-display: 'Rubik', sans-serif;
+  --font-body:    'Figtree', sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 36px;
+  --radius-pill:9999px;
+
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-blue: 0 8px 32px rgba(20,73,174,0.22);
+
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --max-w:  1200px;
+
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  color: var(--gray-800);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* eyebrow */
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.eyebrow-yellow { color: var(--yellow); }
+.eyebrow-muted  { color: rgba(255,255,255,0.55); }
+
+/* accent bar */
+.accent-bar {
+  display: block;
+  width: 40px; height: 4px;
+  background: var(--yellow);
+  border-radius: var(--radius-pill);
+  margin: 0.75rem 0 1.25rem;
+}
+.accent-bar-center { margin: 0.75rem auto 1.25rem; }
+
+/* section rhythm */
+.section { padding: clamp(5rem,9vw,8rem) 0; }
+.section-sm { padding: clamp(3.5rem,6vw,5rem) 0; }
+
+.section-header {
+  max-width: 660px;
+  margin: 0 auto clamp(3rem,5vw,4.5rem);
+  text-align: center;
+}
+
+/* headings */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem,6vw,4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--gray-900);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.875rem,4vw,2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--gray-900);
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem,2.5vw,1.625rem);
+  line-height: 1.25;
+  color: var(--gray-900);
+}
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: var(--gray-900);
+}
+
+.text-white, .text-white h1, .text-white h2,
+.text-white h3, .text-white h4 { color: var(--white); }
+
+.lead {
+  font-size: clamp(1.05rem,2vw,1.2rem);
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+/* tags */
+.tag {
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+.tag-blue   { background: var(--blue-light); color: var(--blue); }
+.tag-yellow { background: var(--yellow-light); color: var(--yellow-dark); }
+.tag-cream  { background: var(--cream); color: var(--gray-600); }
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.625rem;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: none; }
+
+.btn-primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  box-shadow: var(--shadow-blue);
+}
+.btn-secondary {
+  background: transparent;
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.btn-secondary:hover { background: var(--blue-light); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(255,255,255,0.35);
+  color: var(--white);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.65); }
+
+.btn-accent {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--gray-900);
+}
+.btn-accent:hover { background: var(--yellow-dark); border-color: var(--yellow-dark); }
+
+.btn-lg {
+  font-size: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* arrow suffix */
+.arr::after {
+  content: '→';
+  font-size: 1em;
+  transition: transform 0.15s;
+}
+.btn:hover .arr::after,
+.arr:hover::after { transform: translateX(3px); }
+
+/* cards */
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+/* icon mark */
+.icon-mark {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--blue-light);
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+.icon-mark svg { width: 22px; height: 22px; color: var(--blue); }
+.icon-mark-yellow { background: var(--yellow-light); }
+.icon-mark-yellow svg { color: var(--yellow-dark); }
+
+/* grid helpers */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+/* fade-in animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+.fade-up:nth-child(2) { transition-delay: 0.08s; }
+.fade-up:nth-child(3) { transition-delay: 0.16s; }
+.fade-up:nth-child(4) { transition-delay: 0.24s; }
+.fade-up:nth-child(5) { transition-delay: 0.32s; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: box-shadow 0.25s;
+}
+.nav.scrolled { box-shadow: var(--shadow-sm); }
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  gap: 2rem;
+}
+
+/* Logo mark text (replace with <img> for real logo) */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.nav-logo-mark {
+  width: 36px; height: 36px;
+  background: var(--blue);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-mark svg { width: 18px; height: 18px; color: var(--white); }
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gray-900);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  padding: 7rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative grid overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Decorative glow blob */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 55%;
+  height: 90%;
+  background: radial-gradient(ellipse at center, rgba(240,169,65,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,5vw,5rem);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.875rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.75rem,5.5vw,4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.hero-headline em {
+  font-style: normal;
+  color: var(--yellow);
+}
+
+.hero-sub {
+  font-size: clamp(1rem,1.8vw,1.175rem);
+  line-height: 1.75;
+  color: rgba(255,255,255,0.72);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+/* Hero data visualization panel */
+.hero-panel {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  position: relative;
+}
+
+.hero-panel-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-panel-label-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-metric {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-md);
+  padding: 1rem 0.875rem;
+}
+.hero-metric-name {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.35rem;
+}
+.hero-metric-val {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-metric-unit {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.2rem;
+}
+.hero-metric-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(74,222,128,0.12);
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-top: 0.3rem;
+}
+.hero-metric-trend.warn { color: var(--yellow); background: rgba(240,169,65,0.15); }
+
+/* Inline sparkline SVG bars */
+.sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 28px;
+  margin-top: 0.75rem;
+}
+.sparkline-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.2s;
+}
+.sparkline-bar.hi { background: rgba(240,169,65,0.6); }
+.sparkline-bar.active { background: rgba(255,255,255,0.55); }
+
+.hero-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.675rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   CREDENTIAL STRIP
+   ============================================================ */
+.strip {
+  background: var(--gray-900);
+  padding: 1.375rem 0;
+}
+.strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.strip-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+.strip-items {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+  overflow: hidden;
+}
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  padding: 0 2rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  white-space: nowrap;
+}
+.strip-item:first-child { padding-left: 0; }
+.strip-item:last-child { border-right: none; }
+.strip-dot {
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   PROBLEM SECTION
+   ============================================================ */
+.problem { background: var(--gray-50); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem);
+  align-items: center;
+}
+
+.problem-text h2 { margin-bottom: 1.25rem; }
+.problem-text p {
+  font-size: 1.025rem;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 1.125rem;
+}
+.problem-text p:last-child { margin-bottom: 0; }
+
+.problem-contrast {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.contrast-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contrast-col {
+  padding: 1.75rem;
+}
+.contrast-col:first-child {
+  border-right: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+.contrast-col-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.contrast-col-label-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.dot-gray { background: var(--gray-300); }
+.dot-blue { background: var(--blue); }
+
+.contrast-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.825rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+.contrast-item:last-child { margin-bottom: 0; }
+.contrast-item-icon {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.contrast-item-icon.x { color: var(--gray-400); }
+.contrast-item-icon.check { color: var(--blue); }
+
+.contrast-divider {
+  height: 1px;
+  background: var(--gray-200);
+}
+
+/* ============================================================
+   PRODUCT INTRO
+   ============================================================ */
+.product { background: var(--white); }
+
+.product-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem);
+  align-items: center;
+  margin-bottom: clamp(3.5rem,6vw,5rem);
+}
+
+.product-intro-text h2 { margin-bottom: 1.25rem; }
+.product-intro-text p {
+  font-size: 1.025rem;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: 1.125rem;
+}
+
+/* Device mockup */
+.device-wrap {
+  background: var(--blue);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.device-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.device-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.device-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #4ade80;
+  text-transform: uppercase;
+}
+.device-status-dot {
+  width: 6px; height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.device-spectrum {
+  position: relative; z-index: 1;
+  margin: 0.5rem 0;
+}
+.spectrum-svg { width: 100%; height: 70px; }
+
+.device-readings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  position: relative; z-index: 1;
+}
+.device-reading {
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.625rem 0.75rem;
+}
+.device-reading-label {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.25rem;
+}
+.device-reading-val {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  line-height: 1;
+}
+.device-reading-unit {
+  font-size: 0.575rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.15rem;
+}
+
+/* 3-col feature cards below product intro */
+.product-features { }
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-top: 3px solid transparent;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  padding: 1.75rem;
+  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.feature-card:hover {
+  border-top-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.feature-card h4 { margin: 1rem 0 0.6rem; }
+.feature-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+}
+
+/* ============================================================
+   APPLICATIONS
+   ============================================================ */
+.applications { background: var(--cream); }
+
+.app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+
+.app-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.app-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.app-card-tag { margin-bottom: 1rem; }
+.app-card h4 { margin-bottom: 0.625rem; }
+.app-card p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+.app-card-stat {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--blue);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.app-card-stat-label {
+  font-size: 0.7rem;
+  color: var(--gray-500);
+  margin-bottom: 1.25rem;
+}
+.app-card-link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.15s;
+}
+.app-card:hover .app-card-link { gap: 0.55rem; }
+
+/* ============================================================
+   ROI SECTION
+   ============================================================ */
+.roi { background: var(--blue); }
+
+.roi-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem);
+  align-items: start;
+}
+
+.roi-text h2 { color: var(--white); margin-bottom: 1.25rem; }
+.roi-text h2 em { font-style: normal; color: var(--yellow); }
+.roi-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 2rem;
+}
+
+.roi-table-wrap {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8375rem;
+}
+.roi-table th {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.575rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.roi-table th:not(:first-child) { text-align: right; }
+.roi-table td {
+  padding: 0.75rem 1.25rem;
+  color: rgba(255,255,255,0.78);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.825rem;
+}
+.roi-table td:not(:first-child) { text-align: right; }
+.roi-table tbody tr:last-child td { border-bottom: none; }
+.roi-table .row-total {
+  background: rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255,255,255,0.12) !important;
+}
+.roi-table .row-total td {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--yellow);
+  border-bottom: none;
+  padding: 1rem 1.25rem;
+}
+.roi-table .row-cost td { color: rgba(255,255,255,0.45); font-size: 0.775rem; }
+.roi-table .row-sub td {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ============================================================
+   AUDIENCE SECTION
+   ============================================================ */
+.audience { background: var(--white); }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.audience-card {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.audience-card:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  box-shadow: var(--shadow-sm);
+}
+.audience-card-role {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+}
+.audience-card h4 { margin-bottom: 0.75rem; }
+.audience-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+.audience-card-benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--blue);
+  padding: 0.5rem 0.875rem;
+  background: rgba(20,73,174,0.07);
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+.audience-card-link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.15s;
+}
+.audience-card:hover .audience-card-link { gap: 0.55rem; }
+
+/* ============================================================
+   TECHNOLOGY SNIPPET
+   ============================================================ */
+.technology { background: var(--gray-900); }
+
+.tech-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem,6vw,6rem);
+  align-items: center;
+}
+
+.tech-text .eyebrow { color: var(--yellow); }
+.tech-text h2 { color: var(--white); margin-bottom: 1.25rem; }
+.tech-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 2rem;
+}
+
+.tech-visual {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+}
+.tech-vis-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1.5rem;
+}
+.spectrum-full-svg { width: 100%; height: 120px; }
+.tech-vis-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+}
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   INSIGHTS SECTION
+   ============================================================ */
+.insights { background: var(--white); }
+
+.insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.insight-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.insight-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.insight-card-top {
+  background: var(--blue-light);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+}
+.insight-card-icon {
+  width: 48px; height: 48px;
+  background: var(--blue);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+}
+.insight-card-icon svg { width: 22px; height: 22px; color: var(--white); }
+
+.insight-card-body { padding: 1.5rem; }
+.insight-card-body .tag { margin-bottom: 0.875rem; }
+.insight-card-body h4 { margin-bottom: 0.625rem; font-size: 1rem; }
+.insight-card-body p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--gray-600);
+  margin-bottom: 1.25rem;
+}
+.insight-link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap 0.15s;
+}
+.insight-card:hover .insight-link { gap: 0.55rem; }
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+.cta-section {
+  background: var(--cream);
+  padding: clamp(4rem,7vw,6.5rem) 0;
+}
+.cta-box {
+  background: var(--blue);
+  border-radius: var(--radius-2xl);
+  padding: clamp(3rem,5vw,5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.cta-box > * { position: relative; z-index: 1; }
+.cta-box h2 {
+  color: var(--white);
+  font-size: clamp(1.875rem,4vw,2.75rem);
+  margin-bottom: 1rem;
+}
+.cta-box p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.68);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--gray-900);
+  padding: 4rem 0 2rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand {}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.footer-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--blue);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-logo-mark svg { width: 16px; height: 16px; color: var(--white); }
+.footer-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--white);
+}
+.footer-tagline {
+  font-size: 0.825rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.4);
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+}
+.footer-col-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.25rem;
+}
+.footer-links { display: flex; flex-direction: column; gap: 0.625rem; }
+.footer-link {
+  font-size: 0.825rem;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.15s;
+}
+.footer-link:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.28);
+}
+.footer-legal {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-legal a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.28);
+  transition: color 0.15s;
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-panel { display: none; }
+  .hero { min-height: auto; padding: 8rem 0 5rem; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .product-intro { grid-template-columns: 1fr; }
+  .device-wrap { display: none; }
+  .app-grid { grid-template-columns: repeat(2, 1fr); }
+  .roi-inner { grid-template-columns: 1fr; }
+  .tech-inner { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .app-grid { grid-template-columns: 1fr; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .strip-inner { flex-direction: column; align-items: flex-start; gap: 0.875rem; }
+  .strip-items { flex-wrap: wrap; gap: 0.75rem; }
+  .strip-item { padding: 0; border: none; }
+  .strip-label { border: none; padding: 0; margin: 0; }
+  .section-header { text-align: left; }
+  .accent-bar-center { margin-left: 0; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-sub { max-width: 100%; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="/" class="nav-logo" aria-label="Milk Diagnostics home">
+        <!-- Replace the logo-mark below with <img src="logo.svg" alt="Milk Diagnostics"> -->
+        <div class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 2L4 7h3v9h4V7h3L9 2z" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="nav-logo-text">Milk Diagnostics</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="/technology" class="nav-link">Technology</a></li>
+        <li><a href="/applications" class="nav-link">Applications</a></li>
+        <li><a href="/platform" class="nav-link">Platform</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/insights" class="nav-link">Insights</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/contact" class="btn btn-primary arr">Request a Demo</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-headline">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Left: copy -->
+      <div class="hero-content fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+          Real-Time Milk Intelligence
+        </div>
+
+        <h1 class="hero-headline" id="hero-headline">
+          Every Milking.<br>
+          Every Cow.<br>
+          <em>Every Measurement.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Merlin delivers inline spectral analysis at each milking event — continuous, actionable data on milk components, herd health, and reproductive status. No lab. No delay. No guesswork.
+        </p>
+
+        <div class="btn-group">
+          <a href="/contact" class="btn btn-accent btn-lg arr">Request a Demo</a>
+          <a href="/technology" class="btn btn-ghost btn-lg">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Right: live data panel -->
+      <div class="hero-panel fade-up" aria-hidden="true">
+        <div class="hero-panel-label">
+          <span class="hero-panel-label-dot"></span>
+          Merlin — Live Readings · Cow #4821
+        </div>
+
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <div class="hero-metric-name">Butterfat</div>
+            <div class="hero-metric-val">3.94<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">↑ +0.08</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Protein</div>
+            <div class="hero-metric-val">3.21<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">↑ +0.03</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">SCC</div>
+            <div class="hero-metric-val">148<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">k</span></div>
+            <div class="hero-metric-trend">↓ −22k</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Progesterone</div>
+            <div class="hero-metric-val">18.4<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)"> ng</span></div>
+            <div class="hero-metric-trend">↑ Elevated</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">MUN</div>
+            <div class="hero-metric-val">11.8<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)"> mg</span></div>
+            <div class="hero-metric-trend" style="color:var(--yellow);background:rgba(240,169,65,0.15)">Optimal</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Lactose</div>
+            <div class="hero-metric-val">4.82<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">↑ Normal</div>
+          </div>
+        </div>
+
+        <!-- Sparkline bars representing recent milkings -->
+        <div class="sparkline" role="img" aria-label="Recent milking history">
+          <div class="sparkline-bar" style="height:45%"></div>
+          <div class="sparkline-bar" style="height:55%"></div>
+          <div class="sparkline-bar" style="height:50%"></div>
+          <div class="sparkline-bar" style="height:65%"></div>
+          <div class="sparkline-bar" style="height:60%"></div>
+          <div class="sparkline-bar hi" style="height:72%"></div>
+          <div class="sparkline-bar" style="height:68%"></div>
+          <div class="sparkline-bar" style="height:75%"></div>
+          <div class="sparkline-bar active" style="height:82%"></div>
+        </div>
+
+        <div class="hero-panel-footer">
+          <span>Last milking: 06:14 AM</span>
+          <span>Merlin Inline · Spectral Analysis</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CREDENTIAL STRIP
+     ============================================================ -->
+<div class="strip" aria-label="Measurements captured by Merlin">
+  <div class="container">
+    <div class="strip-inner">
+      <span class="strip-label">What Merlin Measures</span>
+      <ul class="strip-items" role="list">
+        <li class="strip-item"><span class="strip-dot" aria-hidden="true"></span>Butterfat &amp; Protein</li>
+        <li class="strip-item"><span class="strip-dot" aria-hidden="true"></span>Somatic Cell Count</li>
+        <li class="strip-item"><span class="strip-dot" aria-hidden="true"></span>Progesterone</li>
+        <li class="strip-item"><span class="strip-dot" aria-hidden="true"></span>Milk Urea Nitrogen</li>
+        <li class="strip-item"><span class="strip-dot" aria-hidden="true"></span>Lactose</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PROBLEM / OPPORTUNITY
+     ============================================================ -->
+<section class="section problem" aria-labelledby="problem-heading">
+  <div class="container">
+    <div class="problem-grid">
+
+      <div class="problem-text fade-up">
+        <span class="eyebrow">The Gap in Dairy Data</span>
+        <div class="accent-bar"></div>
+        <h2 id="problem-heading">Dairy management has always been reactive. It doesn't have to be.</h2>
+        <p>Traditional testing gives you one snapshot per month — a bulk tank average that arrives days after the milk is gone. By then, the nutritional imbalance has cost you. The mastitis has spread. The heat has been missed.</p>
+        <p>Merlin changes the measurement model. Instead of periodic sampling, you get continuous data — cow-level, milking-by-milking, captured inline as part of your existing routine.</p>
+        <p>The result is a fundamentally different kind of dairy management: predictive rather than reactive, and precise rather than approximate.</p>
+      </div>
+
+      <div class="problem-contrast fade-up">
+        <div class="contrast-row">
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-gray" aria-hidden="true"></span>
+              Traditional Testing
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Monthly bulk tank samples
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Herd averages, not individuals
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Results arrive days later
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Reactive management only
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Lab visits and sample handling
+            </div>
+          </div>
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-blue" aria-hidden="true"></span>
+              Merlin Inline
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Every milking event
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Individual cow resolution
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Data available immediately
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Predictive, proactive management
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Fully automated, no extra steps
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PRODUCT INTRO
+     ============================================================ -->
+<section class="section product" aria-labelledby="product-heading">
+  <div class="container">
+
+    <div class="product-intro">
+      <div class="product-intro-text fade-up">
+        <span class="eyebrow">Introducing Merlin</span>
+        <div class="accent-bar"></div>
+        <h2 id="product-heading">Inline spectral analysis. Built for the parlor.</h2>
+        <p>Merlin integrates directly into your milking system. Using near-infrared spectral analysis, it measures the full composition of each cow's milk at every milking — with no additional labor, no sample collection, and no disruption to your routine.</p>
+        <p>The data Merlin generates isn't just measurements. It's a continuous intelligence layer across your herd — feeding nutritionists, veterinarians, herd managers, and producers with the information they need to act decisively.</p>
+        <a href="/technology" class="btn btn-primary arr">Explore the Technology</a>
+      </div>
+
+      <!-- Device visual -->
+      <div class="device-wrap fade-up" aria-hidden="true">
+        <div class="device-header">
+          <div class="device-title">Merlin · Inline Analyzer</div>
+          <div class="device-status">
+            <span class="device-status-dot"></span>
+            Live
+          </div>
+        </div>
+
+        <div class="device-spectrum">
+          <svg class="spectrum-svg" viewBox="0 0 400 70" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="specGrad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%"   stop-color="#1449AE" stop-opacity="0.3"/>
+                <stop offset="35%"  stop-color="#F0A941" stop-opacity="0.7"/>
+                <stop offset="55%"  stop-color="#4ade80" stop-opacity="0.5"/>
+                <stop offset="75%"  stop-color="#60a5fa" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#1449AE" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+            <!-- Spectral curve -->
+            <path d="M0,65 C20,65 30,50 50,48 C70,46 80,30 100,22 C120,14 130,8 150,10 C170,12 175,18 190,16 C205,14 215,6 230,8 C245,10 255,20 270,18 C285,16 295,10 310,12 C325,14 335,22 350,28 C365,34 375,50 400,55 L400,70 L0,70 Z"
+                  fill="url(#specGrad)"/>
+            <path d="M0,65 C20,65 30,50 50,48 C70,46 80,30 100,22 C120,14 130,8 150,10 C170,12 175,18 190,16 C205,14 215,6 230,8 C245,10 255,20 270,18 C285,16 295,10 310,12 C325,14 335,22 350,28 C365,34 375,50 400,55"
+                  fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+            <!-- Peak indicators -->
+            <line x1="150" y1="10" x2="150" y2="70" stroke="rgba(240,169,65,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="230" y1="8"  x2="230" y2="70" stroke="rgba(74,222,128,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="150" cy="10" r="3" fill="#F0A941"/>
+            <circle cx="230" cy="8"  r="3" fill="#4ade80"/>
+          </svg>
+        </div>
+
+        <div class="device-readings">
+          <div class="device-reading">
+            <div class="device-reading-label">Butterfat</div>
+            <div class="device-reading-val">3.94</div>
+            <div class="device-reading-unit">% / milking</div>
+          </div>
+          <div class="device-reading">
+            <div class="device-reading-label">Protein</div>
+            <div class="device-reading-val">3.21</div>
+            <div class="device-reading-unit">% / milking</div>
+          </div>
+          <div class="device-reading">
+            <div class="device-reading-label">SCC</div>
+            <div class="device-reading-val">148k</div>
+            <div class="device-reading-unit">cells/mL</div>
+          </div>
+          <div class="device-reading">
+            <div class="device-reading-label">Progesterone</div>
+            <div class="device-reading-val">18.4</div>
+            <div class="device-reading-unit">ng/mL</div>
+          </div>
+          <div class="device-reading">
+            <div class="device-reading-label">MUN</div>
+            <div class="device-reading-val">11.8</div>
+            <div class="device-reading-unit">mg/dL</div>
+          </div>
+          <div class="device-reading">
+            <div class="device-reading-label">Lactose</div>
+            <div class="device-reading-val">4.82</div>
+            <div class="device-reading-unit">% / milking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 feature cards -->
+    <div class="grid-3 fade-up">
+      <div class="feature-card">
+        <div class="icon-mark">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 11 C5 7 8 4 11 4 C14 4 17 7 19 11 C17 15 14 18 11 18 C8 18 5 15 3 11Z" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="11" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h4>Spectral Precision</h4>
+        <p>Near-infrared analysis captures the full molecular signature of each milk sample — butterfat, protein, lactose, SCC, progesterone, and MUN — at every milking event.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-mark icon-mark-yellow">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 19c0-3.866 3.134-7 7-7h0c3.866 0 7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Cow-Level Resolution</h4>
+        <p>Data is captured and attributed at the individual animal level. Not herd averages. Not tank composites. Every cow. Every milking. Every time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-mark">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 11h14M4 6h6M4 16h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="17" cy="11" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h4>Continuous Data Stream</h4>
+        <p>Merlin runs automatically as part of your existing milking routine. No additional steps, no sample handling. The data is there every time you need it.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     APPLICATIONS
+     ============================================================ -->
+<section class="section applications" aria-labelledby="apps-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">What Merlin Measures</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="apps-heading">One system. Multiple dimensions of herd intelligence.</h2>
+      <p class="lead">Each measurement Merlin captures represents a distinct opportunity to improve performance, reduce costs, or increase revenue.</p>
+    </div>
+
+    <div class="app-grid fade-up">
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-blue">Component Analysis</span></div>
+        <h4>Butterfat, Protein &amp; Lactose</h4>
+        <p>Optimize rations, maximize component premiums, and monitor herd nutritional status — milking by milking.</p>
+        <div class="app-card-stat">$114<span style="font-size:0.9rem;color:var(--gray-500)">/cow</span></div>
+        <div class="app-card-stat-label">potential annual benefit</div>
+        <a href="/applications#components" class="app-card-link">Learn More →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-yellow">Reproductive Management</span></div>
+        <h4>Progesterone</h4>
+        <p>Automate heat detection, confirm pregnancies earlier, and reduce days open — without adding labor.</p>
+        <div class="app-card-stat">$151<span style="font-size:0.9rem;color:var(--gray-500)">/cow</span></div>
+        <div class="app-card-stat-label">potential annual benefit</div>
+        <a href="/applications#progesterone" class="app-card-link">Learn More →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-blue">Udder Health</span></div>
+        <h4>Somatic Cell Count</h4>
+        <p>Catch subclinical mastitis before it becomes clinical. Reduce treatment costs, antibiotic use, and milk discard.</p>
+        <div class="app-card-stat">$110<span style="font-size:0.9rem;color:var(--gray-500)">/cow</span></div>
+        <div class="app-card-stat-label">potential annual benefit</div>
+        <a href="/applications#scc" class="app-card-link">Learn More →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-cream">Nutritional Efficiency</span></div>
+        <h4>Milk Urea Nitrogen</h4>
+        <p>Monitor protein utilization in real time. Reduce nitrogen waste, lower feed costs, and protect fertility.</p>
+        <div class="app-card-stat">$96<span style="font-size:0.9rem;color:var(--gray-500)">/cow</span></div>
+        <div class="app-card-stat-label">potential annual benefit</div>
+        <a href="/applications#mun" class="app-card-link">Learn More →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ROI
+     ============================================================ -->
+<section class="section roi" aria-labelledby="roi-heading">
+  <div class="container">
+    <div class="roi-inner">
+
+      <div class="roi-text fade-up">
+        <span class="eyebrow eyebrow-muted">The Financial Case</span>
+        <div class="accent-bar"></div>
+        <h2 id="roi-heading">A 1,000-cow herd.<br><em>$451,510 net annual return.</em></h2>
+        <p>That figure isn't built on optimistic assumptions. It's a conservative estimate derived from documented improvements in component premiums, feed efficiency, mastitis reduction, and reproductive performance — each modeled independently, each grounded in established dairy science.</p>
+        <a href="/insights" class="btn btn-ghost arr">Download the Full Analysis</a>
+      </div>
+
+      <div class="roi-table-wrap fade-up" role="region" aria-label="ROI summary table">
+        <table class="roi-table">
+          <thead>
+            <tr>
+              <th>Measurement</th>
+              <th>$/Cow/Year</th>
+              <th>1,000-Cow Herd</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Butterfat, Protein &amp; Lactose</td><td>$113.88</td><td>$113,880</td></tr>
+            <tr><td>Progesterone</td><td>$150.50</td><td>$150,500</td></tr>
+            <tr><td>Somatic Cell Count</td><td>$109.50</td><td>$109,500</td></tr>
+            <tr><td>Milk Urea Nitrogen</td><td>$95.63</td><td>$95,630</td></tr>
+            <tr><td>Heifer Raising</td><td>$50.00</td><td>$50,000</td></tr>
+            <tr><td>DHIA Elimination</td><td>$30.00</td><td>$30,000</td></tr>
+            <tr class="row-sub"><td>Subtotal Benefit</td><td>$549.51</td><td>$549,510</td></tr>
+            <tr class="row-cost"><td>Annual System Cost</td><td>($98.00)</td><td>($98,000)</td></tr>
+            <tr class="row-total"><td>Net Annual Return</td><td>$451.51</td><td>$451,510</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     AUDIENCE
+     ============================================================ -->
+<section class="section audience" aria-labelledby="audience-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">Built for Every Role</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="audience-heading">The same data. Different decisions.</h2>
+      <p class="lead">Merlin generates a single continuous data stream — one that's meaningful to producers, nutritionists, veterinarians, and processors alike.</p>
+    </div>
+
+    <div class="audience-grid fade-up">
+
+      <div class="audience-card">
+        <div class="audience-card-role">Dairy Producers</div>
+        <h4>For Dairy Producers</h4>
+        <p>Real-time visibility into component output, herd health trends, and reproductive status — without adding staff or changing your routine.</p>
+        <div class="audience-card-benefit">✓ Actionable, not just informational</div>
+        <a href="/applications" class="audience-card-link">See Producer Applications →</a>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-card-role">Nutritionists &amp; Veterinarians</div>
+        <h4>For Nutritionists &amp; Vets</h4>
+        <p>Individual cow data at milking frequency gives you the diagnostic resolution to identify problems earlier and advise with greater confidence.</p>
+        <div class="audience-card-benefit">✓ Cow-level data, not herd averages</div>
+        <a href="/applications" class="audience-card-link">See Clinical Applications →</a>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-card-role">Processors &amp; Partners</div>
+        <h4>For Processors &amp; Partners</h4>
+        <p>Continuous component visibility at the farm level opens new possibilities for milk quality programs, routing optimization, and supply chain intelligence.</p>
+        <div class="audience-card-benefit">✓ Component data at the source</div>
+        <a href="/applications" class="audience-card-link">See Industry Applications →</a>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-card-role">Researchers</div>
+        <h4>For Researchers</h4>
+        <p>High-frequency phenotypic data at the individual cow level. Merlin generates the kind of longitudinal dataset that periodic sampling has never been able to produce at scale.</p>
+        <div class="audience-card-benefit">✓ Unprecedented data density</div>
+        <a href="/about" class="audience-card-link">Learn About Our Science →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TECHNOLOGY SNIPPET
+     ============================================================ -->
+<section class="section technology" aria-labelledby="tech-heading">
+  <div class="container">
+    <div class="tech-inner">
+
+      <div class="tech-text fade-up">
+        <span class="eyebrow eyebrow-yellow">The Science Behind Merlin</span>
+        <div class="accent-bar"></div>
+        <h2 id="tech-heading" style="color:var(--white)">Spectral analysis has been the gold standard in milk testing for decades. We put it inline.</h2>
+        <p>Near-infrared spectroscopy is a proven, laboratory-grade measurement technique. What Milk Diagnostics has developed is the instrumentation and calibration science to deploy it inline — at parlor conditions, at commercial throughput, without a laboratory.</p>
+        <a href="/technology" class="btn btn-ghost arr">Learn About the Technology</a>
+      </div>
+
+      <div class="tech-visual fade-up" aria-hidden="true">
+        <div class="tech-vis-label">NIR Spectral Signature · Milk Sample</div>
+        <svg class="spectrum-full-svg" viewBox="0 0 440 120" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="specFull" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%"   stop-color="#1449AE" stop-opacity="0.1"/>
+              <stop offset="30%"  stop-color="#F0A941" stop-opacity="0.5"/>
+              <stop offset="50%"  stop-color="#4ade80" stop-opacity="0.4"/>
+              <stop offset="70%"  stop-color="#60a5fa" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#1449AE" stop-opacity="0.1"/>
+            </linearGradient>
+          </defs>
+          <!-- Baseline -->
+          <line x1="0" y1="100" x2="440" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Main spectral curve -->
+          <path d="M0,100 C15,100 25,90 40,85 C55,80 65,60 85,40 C105,20 115,12 135,15 C155,18 160,28 175,25 C190,22 200,10 215,12 C230,14 240,30 255,28 C270,26 280,15 295,17 C310,19 320,32 335,40 C350,48 360,70 380,80 C400,90 420,98 440,100 L440,120 L0,120 Z"
+                fill="url(#specFull)"/>
+          <path d="M0,100 C15,100 25,90 40,85 C55,80 65,60 85,40 C105,20 115,12 135,15 C155,18 160,28 175,25 C190,22 200,10 215,12 C230,14 240,30 255,28 C270,26 280,15 295,17 C310,19 320,32 335,40 C350,48 360,70 380,80 C400,90 420,98 440,100"
+                fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <!-- Peak markers -->
+          <line x1="135" y1="15" x2="135" y2="100" stroke="rgba(240,169,65,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="215" y1="12" x2="215" y2="100" stroke="rgba(74,222,128,0.3)"  stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="295" y1="17" x2="295" y2="100" stroke="rgba(96,165,250,0.3)"  stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="135" cy="15" r="3.5" fill="#F0A941"/>
+          <circle cx="215" cy="12" r="3.5" fill="#4ade80"/>
+          <circle cx="295" cy="17" r="3.5" fill="#60a5fa"/>
+          <!-- X-axis labels -->
+          <text x="135" y="115" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Figtree, sans-serif">Butterfat</text>
+          <text x="215" y="115" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Figtree, sans-serif">Protein</text>
+          <text x="295" y="115" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="Figtree, sans-serif">Lactose</text>
+        </svg>
+        <div class="tech-vis-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#F0A941"></span>Butterfat peak</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#4ade80"></span>Protein peak</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#60a5fa"></span>Lactose peak</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INSIGHTS / RESOURCES
+     ============================================================ -->
+<section class="section insights" aria-labelledby="insights-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">Insights</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="insights-heading">The research behind the platform.</h2>
+      <p class="lead">Each Merlin measurement capability is backed by detailed analysis of the science, the data, and the financial opportunity.</p>
+    </div>
+
+    <div class="insights-grid fade-up">
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon">
+            <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 3v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-blue">Thought Paper</span>
+          <h4>Butterfat, Protein &amp; Lactose</h4>
+          <p>How continuous component data translates into measurable revenue improvement across a commercial dairy operation.</p>
+          <a href="/insights/components" class="insight-link">Read the Paper →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon">
+            <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M6 8a5 5 0 0110 0c0 5-5 9-5 9s-5-4-5-9z" stroke="currentColor" stroke-width="1.5"/><circle cx="11" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-yellow">Thought Paper</span>
+          <h4>Progesterone &amp; Reproduction</h4>
+          <p>What real-time progesterone data means for heat detection accuracy, days open, and synchronization costs.</p>
+          <a href="/insights/progesterone" class="insight-link">Read the Paper →</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon">
+            <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4v14M4 11h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-cream">Thought Paper</span>
+          <h4>Somatic Cell Count</h4>
+          <p>How continuous SCC monitoring reduces treatment costs, antibiotic use, and milk quality losses on commercial dairies.</p>
+          <a href="/insights/scc" class="insight-link">Read the Paper →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="/insights" class="btn btn-secondary arr">View All Insights</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-box fade-up">
+      <span class="eyebrow eyebrow-muted">Get Started</span>
+      <h2 id="cta-heading">See what Merlin can do for your operation.</h2>
+      <p>We're working with a focused group of dairy producers, processors, and industry partners ahead of our commercial launch. If you're interested in learning more — or exploring what a pilot program might look like — we'd like to hear from you.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="/contact" class="btn btn-accent btn-lg arr">Request a Conversation</a>
+        <a href="/technology" class="btn btn-ghost btn-lg">Explore Our Technology</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2L4 6h2v8h4V6h2L8 2z" fill="currentColor"/></svg>
+          </div>
+          <span class="footer-logo-text">Milk Diagnostics</span>
+        </div>
+        <p class="footer-tagline">Real-time milk intelligence for modern dairy operations. Milk the cow. Milk the data.</p>
+        <a href="/contact" class="btn btn-primary">Request a Demo</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links" role="list">
+          <li><a href="/technology" class="footer-link">Technology</a></li>
+          <li><a href="/applications" class="footer-link">Applications</a></li>
+          <li><a href="/platform" class="footer-link">Platform Overview</a></li>
+          <li><a href="/insights" class="footer-link">Insights</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="/about" class="footer-link">About Us</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links" role="list">
+          <li><a href="/insights" class="footer-link">Thought Papers</a></li>
+          <li><a href="/insights/roi" class="footer-link">ROI Analysis</a></li>
+          <li><a href="/contact" class="footer-link">Request a Demo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Milk Diagnostics. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JS — Scroll nav + fade-in observer
+     ============================================================ -->
+<script>
+  // Sticky nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
