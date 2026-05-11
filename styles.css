@@ -1865,3 +1865,186 @@ h4, .h4 {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   CONTACT PAGE / MAILCHIMP FORM
+   ========================================= */
+
+/* ============================================================
+   CONTACT PAGE â€” append this entire block to the end of
+   styles.css. Do not place it inside any existing rule.
+   ============================================================ */
+
+/* â”€â”€ Hero height modifier â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.hero.hero-contact {
+  min-height: 0;
+  padding: 8rem 0 5rem;
+  align-items: flex-start;
+}
+
+/* â”€â”€ Left column: trust list â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.hero.hero-contact .contact-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.hero.hero-contact .contact-trust-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.7);
+}
+/* Force child <span> â€” overrides body { color: var(--gray-800) } */
+.hero.hero-contact .contact-trust-item span {
+  color: rgba(255,255,255,0.7);
+}
+.hero.hero-contact .contact-trust-dot {
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  background: var(--yellow);
+  border-radius: 50%;
+  margin-top: 0.45em;
+  flex-shrink: 0;
+}
+.hero.hero-contact .contact-commitment {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.4);
+  max-width: 420px;
+}
+
+/* â”€â”€ Mailchimp form â€” scoped to .mc-form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Replaces Mailchimp CDN stylesheet (classic-061523.css).    */
+/* All color values use existing site design tokens.          */
+
+.mc-form .mc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Labels â€” beats body color cascade via !important + webkit  */
+.mc-form label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55) !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.55) !important;
+  line-height: 1;
+}
+.mc-form .mc-required {
+  color: var(--yellow);
+  -webkit-text-fill-color: var(--yellow);
+  font-weight: 700;
+}
+
+/* All field types */
+.mc-form input[type="text"],
+.mc-form input[type="email"],
+.mc-form select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.875rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #ffffff !important;
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s, background 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+  color-scheme: dark;
+}
+.mc-form input[type="text"]:focus,
+.mc-form input[type="email"]:focus,
+.mc-form select:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.45) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+.mc-form input::placeholder {
+  color: rgba(255,255,255,0.35) !important;
+  opacity: 1;
+}
+.mc-form select option {
+  background: #1e2229;
+  color: #ffffff;
+}
+
+/* Submit button â€” inherits .btn .btn-accent .btn-lg from site */
+.mc-form .mc-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
+  display: flex;
+}
+
+/* .hero-panel-footer inside the form */
+.mc-form .hero-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.675rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.4) !important;
+}
+
+/* Mailchimp error/success response messages */
+#mce-error-response,
+#mce-success-response {
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+#mce-error-response {
+  background: rgba(220,38,38,0.15);
+  border: 1px solid rgba(220,38,38,0.35);
+  color: #fca5a5;
+}
+#mce-success-response {
+  background: rgba(74,222,128,0.12);
+  border: 1px solid rgba(74,222,128,0.3);
+  color: #86efac;
+}
+
+/* Nav + footer logo image sizing */
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero.hero-contact .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero.hero-contact .hero-panel {
+    width: 100%;
+  }
+}
