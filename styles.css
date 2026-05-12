@@ -8304,3 +8304,22 @@ h4, .h4 {
   margin-left: auto;
   margin-right: auto;
 }
+/* CONTACT FORM VISIBILITY FIX */
+.hero.hero-contact .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero.hero-contact .hero-panel {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+.hero.hero-contact .mc-form {
+  display: block !important;
+}
