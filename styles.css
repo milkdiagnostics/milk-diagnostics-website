@@ -5294,7 +5294,7 @@ h4, .h4 {
    ============================================================ */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-panel { display: none; }
+  .hero:not(.hero-contact) .hero-panel { display: none; }
   .hero { min-height: auto; padding: 8rem 0 5rem; }
   .problem-grid { grid-template-columns: 1fr; }
   .product-intro { grid-template-columns: 1fr; }
