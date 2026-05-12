@@ -3299,7 +3299,7 @@ h4, .h4 {
    ============================================================ */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-panel { display: none; }
+  .hero:not(.hero-contact) .hero-panel { display: none; }
   .hero { min-height: auto; padding: 8rem 0 5rem; }
   .problem-grid { grid-template-columns: 1fr; }
   .product-intro { grid-template-columns: 1fr; }
@@ -5294,7 +5294,7 @@ h4, .h4 {
    ============================================================ */
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-panel { display: none; }
+  .hero:not(.hero-contact) .hero-panel { display: none; }
   .hero { min-height: auto; padding: 8rem 0 5rem; }
   .problem-grid { grid-template-columns: 1fr; }
   .product-intro { grid-template-columns: 1fr; }
@@ -8303,4 +8303,23 @@ h4, .h4 {
 .accent-bar-center {
   margin-left: auto;
   margin-right: auto;
+}
+/* CONTACT FORM VISIBILITY FIX */
+.hero.hero-contact .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero.hero-contact .hero-panel {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+.hero.hero-contact .mc-form {
+  display: block !important;
 }
