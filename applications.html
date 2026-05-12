@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applications — Milk Diagnostics</title>
+<meta name="description" content="How Milk Diagnostics inline spectral analysis applies across herd health, reproductive management, milk component visibility, research, and processor quality workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Milk Diagnostics home">
+        <img src="assets/images/md-logo.svg" alt="Milk Diagnostics" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="technology.html"   class="nav-link">Technology</a></li>
+        <li><a href="applications.html" class="nav-link active">Applications</a></li>
+        <li><a href="platform.html"     class="nav-link">Platform</a></li>
+        <li><a href="about.html"        class="nav-link">About</a></li>
+        <li><a href="insights.html"     class="nav-link">Insights</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary arr">Request a Demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     Same pattern as technology.html: single-column headline
+     with metrics panel on the right.
+     ============================================================ -->
+<section class="hero hero-contact" aria-labelledby="apps-headline">
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-content">
+        <span class="eyebrow eyebrow-yellow">Applications</span>
+        <div class="accent-bar"></div>
+        <h1 class="hero-headline" id="apps-headline">
+          One platform.<br>
+          <em>Multiple dairy applications.</em>
+        </h1>
+        <p class="hero-sub" style="max-width:560px">
+          Merlin transforms inline milk measurements into operational visibility. The same spectral scan that captures component data also monitors herd health, reproductive status, and nutritional efficiency — continuously, at every milking, without additional steps.
+        </p>
+        <div class="btn-group">
+          <a href="contact.html" class="btn btn-accent btn-lg arr">Request a Demo</a>
+          <a href="contact.html" class="btn btn-ghost btn-lg">Contact Our Team</a>
+        </div>
+      </div>
+
+      <!-- Metrics panel — verbatim from index.html hero -->
+      <div class="hero-panel fade-up" aria-hidden="true">
+        <div class="hero-panel-label">
+          <span class="hero-panel-label-dot"></span>
+          Merlin — Live Readings · Cow #4821
+        </div>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <div class="hero-metric-name">Butterfat</div>
+            <div class="hero-metric-val">3.94<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">&#8593; +0.08</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Protein</div>
+            <div class="hero-metric-val">3.21<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">&#8593; +0.03</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">SCC</div>
+            <div class="hero-metric-val">148<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">k</span></div>
+            <div class="hero-metric-trend">&#8595; &#8722;22k</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Progesterone</div>
+            <div class="hero-metric-val">18.4<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)"> ng</span></div>
+            <div class="hero-metric-trend">&#8593; Elevated</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">MUN</div>
+            <div class="hero-metric-val">11.8<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)"> mg</span></div>
+            <div class="hero-metric-trend" style="color:var(--yellow);background:rgba(240,169,65,0.15)">Optimal</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-name">Lactose</div>
+            <div class="hero-metric-val">4.82<span style="font-size:0.75rem;color:rgba(255,255,255,0.45)">%</span></div>
+            <div class="hero-metric-trend">&#8593; Normal</div>
+          </div>
+        </div>
+        <div class="sparkline" role="img" aria-label="Recent milking trend">
+          <div class="sparkline-bar" style="height:45%"></div>
+          <div class="sparkline-bar" style="height:55%"></div>
+          <div class="sparkline-bar" style="height:50%"></div>
+          <div class="sparkline-bar" style="height:65%"></div>
+          <div class="sparkline-bar" style="height:60%"></div>
+          <div class="sparkline-bar" style="height:72%"></div>
+          <div class="sparkline-bar" style="height:68%"></div>
+          <div class="sparkline-bar" style="height:80%"></div>
+        </div>
+        <div class="hero-panel-footer">
+          <span>6 measurements · 1 inline scan</span>
+          <span>Every milking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HERD HEALTH
+     .section.problem — gray-50 bg
+     .problem-grid two-col: text left, contrast panel right
+     ============================================================ -->
+<section class="section problem" id="herd-health" aria-labelledby="hh-heading">
+  <div class="container">
+    <div class="problem-grid">
+
+      <div class="problem-text fade-up">
+        <span class="eyebrow">Herd Health Monitoring</span>
+        <div class="accent-bar"></div>
+        <h2 id="hh-heading">Earlier detection. More targeted response.</h2>
+        <p>Somatic cell count and lactose are the primary inline indicators of udder health. At milking frequency, deviations appear long before clinical signs — giving veterinarians and herd managers a diagnostic window that bulk tank monitoring cannot provide.</p>
+        <p>A cow trending upward in SCC across consecutive milkings is a different signal from a single elevated reading. Continuous data makes that distinction legible and actionable.</p>
+        <ul class="apps-list">
+          <li>Cow-level SCC at every milking, not monthly averages</li>
+          <li>Lactose decline as an early subclinical mastitis signal</li>
+          <li>Trending patterns — not isolated data points</li>
+          <li>More targeted treatment decisions</li>
+        </ul>
+      </div>
+
+      <div class="problem-contrast fade-up">
+        <div class="contrast-row">
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-gray" aria-hidden="true"></span>
+              Current approach
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Monthly bulk tank SCC average
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Clinical detection only
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Reactive treatment after milk loss
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Herd-level penalties, not cow-level data
+            </div>
+          </div>
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-blue" aria-hidden="true"></span>
+              With Merlin inline
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Cow-level SCC every milking
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Subclinical detection before symptoms
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Trending alerts across milkings
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Proactive, targeted intervention
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REPRODUCTION
+     .section.product — white bg
+     .product-intro two-col: visual left, text right
+     ============================================================ -->
+<section class="section product" id="reproduction" aria-labelledby="repro-heading">
+  <div class="container">
+    <div class="product-intro">
+
+      <!-- Progesterone profile — inline SVG, no external assets -->
+      <div class="tech-visual fade-up" aria-hidden="true">
+        <div class="tech-vis-label">Progesterone profile &#183; Cow #2847 &#183; 28-day window</div>
+        <svg viewBox="0 0 300 90" style="width:100%;display:block;margin-bottom:0.875rem;" preserveAspectRatio="none" role="img">
+          <defs>
+            <linearGradient id="pg-apps" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#F0A941" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#F0A941" stop-opacity="0.04"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="88" x2="300" y2="88" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <!-- Luteal phase high -->
+          <path d="M0,78 C8,78 12,22 28,18 C44,14 52,16 68,20 C78,23 82,76 94,82"
+                fill="url(#pg-apps)" stroke="none"/>
+          <path d="M0,78 C8,78 12,22 28,18 C44,14 52,16 68,20 C78,23 82,76 94,82"
+                fill="none" stroke="rgba(240,169,65,0.55)" stroke-width="1.5"/>
+          <!-- Estrus drop -->
+          <path d="M94,82 C99,84 106,87 115,87 C120,87 124,87 128,87"
+                fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <!-- Estrus marker -->
+          <line x1="112" y1="2" x2="112" y2="88" stroke="rgba(74,222,128,0.45)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="114" y="10" fill="rgba(74,222,128,0.8)" font-size="6.5" font-family="Figtree,sans-serif">Estrus</text>
+          <!-- Luteal rise post-conception -->
+          <path d="M128,87 C133,84 142,52 158,22 C166,10 174,8 184,9 C210,11 240,11 270,11 C282,11 292,11 300,12"
+                fill="url(#pg-apps)" stroke="none"/>
+          <path d="M128,87 C133,84 142,52 158,22 C166,10 174,8 184,9 C210,11 240,11 270,11 C282,11 292,11 300,12"
+                fill="none" stroke="rgba(240,169,65,0.55)" stroke-width="1.5"/>
+          <!-- Conception marker -->
+          <line x1="184" y1="2" x2="184" y2="88" stroke="rgba(240,169,65,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="186" y="10" fill="rgba(240,169,65,0.8)" font-size="6.5" font-family="Figtree,sans-serif">Conception confirmed</text>
+        </svg>
+        <div class="tech-vis-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#4ade80"></span>Estrus detected</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#F0A941"></span>Conception confirmed</div>
+        </div>
+      </div>
+
+      <div class="product-intro-text fade-up">
+        <span class="eyebrow">Reproductive Monitoring</span>
+        <div class="accent-bar"></div>
+        <h2 id="repro-heading">Automated heat detection. Earlier confirmation.</h2>
+        <p>Progesterone is the most direct biochemical signal of reproductive status. Its rise and fall encodes estrus, conception, early pregnancy, and disorders with a precision that activity-based monitoring alone cannot match.</p>
+        <p>Inline progesterone at milking frequency allows heat detection to be automated and physiologically grounded. Pregnancy can be confirmed weeks earlier than traditional ultrasound scheduling allows. Disorders surface while intervention is still practical.</p>
+        <ul class="apps-list">
+          <li>Automated estrus detection from hormonal data</li>
+          <li>Earlier pregnancy confirmation</li>
+          <li>Identification of luteal cysts and non-cycling cows</li>
+          <li>Reduced synchronization protocol dependency</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MILK COMPONENTS
+     .section.applications — cream bg
+     .grid-3 feature cards — clean, icon-restrained
+     ============================================================ -->
+<section class="section applications" id="components" aria-labelledby="comp-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">Milk Component Visibility</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="comp-heading">Butterfat. Protein. Lactose. Milking by milking.</h2>
+      <p class="lead">Component payment programs reward fat and protein content. Continuous individual-cow data creates a feedback loop that monthly testing cannot — ration responses visible in days, not at the next test cycle.</p>
+    </div>
+
+    <div class="grid-3 fade-up">
+
+      <div class="feature-card">
+        <h4>Ration response tracking</h4>
+        <p>See how component levels respond to feed changes at the individual cow and group level within days. Make adjustments with real data rather than waiting for the next DHIA result.</p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Component payment optimization</h4>
+        <p>Identify which animals, groups, and periods drive quality — and which dilute premiums. USDA component pricing directly monetizes improvements in butterfat and protein at the cow level.</p>
+      </div>
+
+      <div class="feature-card">
+        <h4>Lactose as a health signal</h4>
+        <p>Lactose is a reliable early indicator of subclinical mastitis and metabolic stress — often declining before SCC rises visibly. Continuous monitoring captures this window.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RESEARCH & PROCESSOR
+     .section.audience — white bg, .audience-grid two-col
+     ============================================================ -->
+<section class="section audience" id="research" aria-labelledby="research-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">Further Applications</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="research-heading">Research and processor visibility.</h2>
+      <p class="lead">The same measurement infrastructure that serves operational decisions also serves research objectives and supply chain quality programs — without additional instrumentation.</p>
+    </div>
+
+    <div class="audience-grid fade-up">
+
+      <div class="audience-card">
+        <div class="audience-card-role">Research &amp; Validation</div>
+        <h4>High-frequency phenotypic data at commercial scale.</h4>
+        <p>Traditional research is constrained by sampling frequency. Inline measurement at milking frequency — individual cow, every event — produces datasets unavailable through conventional testing. That enables faster hypothesis testing, richer phenotypic characterization, and the ability to study dynamics that monthly sampling cannot resolve.</p>
+        <div class="audience-card-benefit">&#10003; Individual cow data at milking frequency</div>
+        <a href="contact.html" class="audience-card-link">Discuss research collaboration &#8594;</a>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-card-role">Processor Quality Visibility</div>
+        <h4>Component intelligence at the point of production.</h4>
+        <p>Processors currently receive component data from bulk tank averages collected intermittently. Inline measurement creates the possibility of real-time quality signals at farm level — routing decisions grounded in continuous data, quality programs supported by individual-cow history, and supply chain visibility that periodic sampling cannot provide.</p>
+        <div class="audience-card-benefit">&#10003; Quality data before the milk leaves the farm</div>
+        <a href="contact.html" class="audience-card-link">Discuss your operation &#8594;</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TAGLINE SECTION
+     .section.technology — dark bg
+     Typography-driven. No icons. Intentional, restrained.
+     ============================================================ -->
+<section class="section technology apps-tagline" aria-label="Operational philosophy">
+  <div class="container">
+    <div class="apps-tagline-inner fade-up">
+      <p class="apps-tagline-kicker">Operational philosophy</p>
+      <blockquote class="apps-tagline-text">
+        Milk the cow.<br>Milk the data.
+      </blockquote>
+      <p class="apps-tagline-body">Every milking event already contains six distinct streams of operational intelligence. The biochemical signature of the milk encodes component composition, udder health status, reproductive cycle, and nutritional efficiency — simultaneously, at every cow, at every milking. Continuous inline measurement is the infrastructure to extract it.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PLATFORM FLOW
+     .section.problem — gray-50 bg
+     Numbered cards. Clean. No icons, no diagrams.
+     ============================================================ -->
+<section class="section problem" aria-labelledby="flow-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">How the Platform Works</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="flow-heading">From parlor to decision. Continuously.</h2>
+      <p class="lead">The data pipeline is fully automatic. No sample handling. No manual steps. No laboratory wait.</p>
+    </div>
+
+    <div class="apps-flow-grid fade-up">
+
+      <div class="card apps-flow-card">
+        <div class="apps-flow-num">01</div>
+        <h4>Milk passes through the inline sensor</h4>
+        <p>During a standard milking event, milk flows through the Merlin sensor. No diversion. No additional steps in the cow path. No change to existing parlor routine.</p>
+      </div>
+
+      <div class="card apps-flow-card">
+        <div class="apps-flow-num">02</div>
+        <h4>Measurements are captured spectrally</h4>
+        <p>Near-infrared spectroscopy captures the molecular signature of the milk. Six parameters are derived from a single spectral scan and attributed to the individual cow.</p>
+      </div>
+
+      <div class="card apps-flow-card apps-flow-card-accent">
+        <div class="apps-flow-num">03</div>
+        <h4>Data is structured in the platform</h4>
+        <p>Calibrated values are processed and stored. Longitudinal records are built cow by cow, milking by milking — continuously updated and available through the platform interface.</p>
+      </div>
+
+      <div class="card apps-flow-card">
+        <div class="apps-flow-num">04</div>
+        <h4>Insights become actionable</h4>
+        <p>Alerts, trends, and reports are delivered to the right role — producer, nutritionist, veterinarian, or processor — in the format they need to act on the data.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA — .cta-section / .cta-box verbatim pattern
+     ============================================================ -->
+<section class="cta-section" aria-labelledby="apps-cta-heading">
+  <div class="container">
+    <div class="cta-box fade-up">
+      <span class="eyebrow eyebrow-muted">Get Started</span>
+      <h2 id="apps-cta-heading">Ready to explore your operation?</h2>
+      <p>We&#8217;re working with a focused group of producers, processors, veterinarians, and researchers ahead of commercial launch. If your operation could benefit from continuous inline milk intelligence, we&#8217;d like to talk.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="contact.html" class="btn btn-accent btn-lg arr">Request a Demo</a>
+        <a href="contact.html" class="btn btn-ghost btn-lg">Contact Our Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER — verbatim from index.html
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/md-logo.svg" alt="Milk Diagnostics" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">Real-time milk intelligence for modern dairy operations. Milk the cow. Milk the data.</p>
+        <a href="contact.html" class="btn btn-primary">Request a Demo</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links" role="list">
+          <li><a href="technology.html"   class="footer-link">Technology</a></li>
+          <li><a href="applications.html" class="footer-link">Applications</a></li>
+          <li><a href="platform.html"     class="footer-link">Platform Overview</a></li>
+          <li><a href="insights.html"     class="footer-link">Insights</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="about.html"   class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links" role="list">
+          <li><a href="insights.html"     class="footer-link">Thought Papers</a></li>
+          <li><a href="insights.html#roi" class="footer-link">ROI Analysis</a></li>
+          <li><a href="contact.html"      class="footer-link">Request a Demo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&#169; 2025 Milk Diagnostics. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
