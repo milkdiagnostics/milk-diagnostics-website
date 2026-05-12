@@ -8323,3 +8323,20 @@ h4, .h4 {
 .hero.hero-contact .mc-form {
   display: block !important;
 }
+.app-visual-minimal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-data-card {
+  padding: 2rem;
+  border: 1px solid rgba(20, 73, 174, 0.15);
+  border-radius: 1.25rem;
+  background: rgba(20, 73, 174, 0.04);
+  max-width: 420px;
+}
+
+.app-data-card h4 {
+  margin: 0.75rem 0;
+}
