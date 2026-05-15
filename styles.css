@@ -12959,15 +12959,14 @@ h4, .h4 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.825rem;
-  color: var(--white);
+  color: var(--gray-900);
   margin-bottom: 0.25rem;
   line-height: 1.2;
 }
 .insights-principle-desc {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: rgba(255,255,255,0.72);
-}
+color: var(--gray-600);}
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 768px) {
