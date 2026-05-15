@@ -1033,18 +1033,16 @@ h4, .h4 {
 }
 
 .tech-visual {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(13,53,128,0.08);
 }
 .tech-vis-label {
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 1.5rem;
+  color: var(--blue-dark);
+}  margin-bottom: 1.5rem;
 }
 .spectrum-full-svg { width: 100%; height: 120px; }
 .tech-vis-legend {
@@ -12967,6 +12965,11 @@ h4, .h4 {
   font-size: 0.8rem;
   line-height: 1.6;
 color: var(--gray-600);}
+
+.insights-principle-num {
+    color: var(--yellow);
+    font-weight: 700;
+}
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 768px) {
