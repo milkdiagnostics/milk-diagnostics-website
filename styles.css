@@ -13048,3 +13048,19 @@ color: var(--gray-600);}
     max-width: 100%;
   }
 }
+/* Final override: insight principle contrast */
+.tech-visual .tech-vis-label {
+    color: var(--blue-dark) !important;
+}
+
+.tech-visual .insights-principle-title {
+    color: var(--gray-900) !important;
+}
+
+.tech-visual .insights-principle-desc {
+    color: var(--gray-600) !important;
+}
+
+.tech-visual .insights-principle-num {
+    color: var(--yellow) !important;
+}
