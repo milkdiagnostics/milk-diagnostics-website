@@ -12974,3 +12974,75 @@ h4, .h4 {
   .insights-grid.insights-grid-4 { grid-template-columns: 1fr; }
   .insights-featured { padding: 2rem 1.5rem; border-left-width: 3px; }
 }
+/* Mobile fixes */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  header,
+  .header,
+  .site-header,
+  nav {
+    padding: 20px 24px;
+  }
+
+  .logo img,
+  header img {
+    max-width: 140px;
+    height: auto;
+  }
+
+  .demo-button,
+  .cta-button,
+  .nav-cta,
+  a[href*="demo"] {
+    padding: 16px 24px;
+    font-size: 15px;
+    border-radius: 18px;
+    white-space: nowrap;
+  }
+
+  .hero,
+  .contact-hero,
+  section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-grid,
+  .contact-grid,
+  .two-column,
+  .grid {
+    display: block;
+  }
+
+  .hero-content,
+  .hero-text,
+  .contact-hero-content,
+  .contact-copy,
+  .lead,
+  .intro-text {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero p,
+  .contact-hero p,
+  .lead,
+  .intro-text,
+  p {
+    max-width: 100%;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .hero h1,
+  .contact-hero h1,
+  h1 {
+    font-size: 56px;
+    line-height: 0.95;
+    max-width: 100%;
+  }
+}
