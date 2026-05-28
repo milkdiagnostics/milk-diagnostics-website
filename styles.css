@@ -8238,47 +8238,7 @@ h4, .h4 {
 }
 
 
-/* ============================================================
-   PLATFORM PAGE — scoped additions
-   All values use existing CSS custom properties.
-   No root variables redefined. No global selectors.
-   ============================================================ */
 
-/* Trend chart summary row — below the SCC SVG visual */
-.plat-trend-row {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-.plat-trend-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-.plat-trend-val {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--white);
-  line-height: 1;
-}
-.plat-trend-label {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-
-/* Roles grid — 2x2 on desktop, same as audience-grid but 4-col cap */
-.plat-roles-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 768px) {
-  .plat-trend-row { gap: 1rem; }
-  .plat-roles-grid { grid-template-columns: 1fr; }
-}
 /* Longitudinal Visibility Section */
 
 .product-intro-text {
@@ -10434,49 +10394,6 @@ h4, .h4 {
 /* Responsive */
 @media (max-width: 768px) {
   .apps-flow-grid { grid-template-columns: 1fr; }
-}
-
-
-/* ============================================================
-   PLATFORM PAGE â€” scoped additions
-   All values use existing CSS custom properties.
-   No root variables redefined. No global selectors.
-   ============================================================ */
-
-/* Trend chart summary row â€” below the SCC SVG visual */
-.plat-trend-row {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-.plat-trend-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-.plat-trend-val {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--white);
-  line-height: 1;
-}
-.plat-trend-label {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-
-/* Roles grid â€” 2x2 on desktop, same as audience-grid but 4-col cap */
-.plat-roles-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 768px) {
-  .plat-trend-row { gap: 1rem; }
-  .plat-roles-grid { grid-template-columns: 1fr; }
 }
 
 
@@ -12704,49 +12621,6 @@ h4, .h4 {
 /* Responsive */
 @media (max-width: 768px) {
   .apps-flow-grid { grid-template-columns: 1fr; }
-}
-
-
-/* ============================================================
-   PLATFORM PAGE — scoped additions
-   All values use existing CSS custom properties.
-   No root variables redefined. No global selectors.
-   ============================================================ */
-
-/* Trend chart summary row — below the SCC SVG visual */
-.plat-trend-row {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-.plat-trend-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-.plat-trend-val {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--white);
-  line-height: 1;
-}
-.plat-trend-label {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-}
-
-/* Roles grid — 2x2 on desktop, same as audience-grid but 4-col cap */
-.plat-roles-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media (max-width: 768px) {
-  .plat-trend-row { gap: 1rem; }
-  .plat-roles-grid { grid-template-columns: 1fr; }
 }
 
 
