@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology — Milk Diagnostics</title>
+<meta name="description" content="How Milk Diagnostics delivers real-time milk and herd health data inline at every milking event.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-logo" aria-label="Milk Diagnostics home">
+        <img src="assets/images/md-logo.svg"
+             alt="Milk Diagnostics"
+             class="nav-logo-img">
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="technology.html" class="nav-link active">Technology</a></li>
+        <li><a href="applications.html" class="nav-link">Applications</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="insights.html" class="nav-link">Insights</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary arr">Request a Demo</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     Uses .hero.hero-contact (padding-based height, same bg/grid).
+     Single-column — no data panel on this page.
+     ============================================================ -->
+<section class="hero hero-contact" aria-labelledby="tech-headline">
+  <div class="container">
+    <div class="tech-hero-inner">
+
+      <div class="tech-hero-text">
+        <span class="eyebrow eyebrow-yellow">The Approach</span>
+        <div class="accent-bar"></div>
+        <h1 class="hero-headline" id="tech-headline">
+          Inline measurement.<br>
+          <em>At every milking.</em>
+        </h1>
+        <p class="hero-sub" style="max-width:680px">
+          Milk Diagnostics is developing instrumentation that brings advanced inline sensing into the milking parlor — delivering real-time data at every milking event without disrupting existing operations.
+        </p>
+        <div class="btn-group">
+          <a href="contact.html" class="btn btn-accent btn-lg arr">Request a Demo</a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">How it works</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOW IT WORKS — .section.problem (gray-50 bg)
+     ============================================================ -->
+<section class="section problem" id="how-it-works" aria-labelledby="how-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">How It Works</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="how-heading">From milk event to actionable data — inline.</h2>
+      <p class="lead">The measurement happens as part of the normal milking routine. No extra steps. No sample collection. No waiting.</p>
+    </div>
+
+    <div class="grid-3 fade-up">
+
+      <div class="feature-card">
+        <div class="icon-mark">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 7v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>1 — Milk flow event</h4>
+        <p>At each milking, milk passes through the inline analyzer as part of the standard parlor process. No diversion, no sample tube, no additional handling required.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-mark icon-mark-yellow">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M4 11 C5 7 8 4 11 4 C14 4 17 7 19 11 C17 15 14 18 11 18 C8 18 5 15 4 11Z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>2 — Inline measurement</h4>
+        <p>Merlin's inline measurement captures the milk as it flows through the parlor, with no sample handling and no manual steps. The reading is taken in real time at the point of milking.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-mark">
+          <svg viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="12" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="3" y="12" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="12" y="12" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h4>3 — Data delivered</h4>
+        <p>Results are attributed to the individual cow and delivered through the platform — available to producers, nutritionists, and veterinarians at milking frequency, not monthly.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOW IT WORKS (continued) — .section.technology (dark bg)
+     Reuses .tech-inner two-col layout.
+     ============================================================ -->
+<section class="section technology" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="tech-inner">
+
+      <div class="tech-text fade-up">
+        <span class="eyebrow eyebrow-yellow">How It Works</span>
+        <div class="accent-bar"></div>
+        <h2 id="why-heading" style="color:var(--white)">Continuous data, not a periodic snapshot.</h2>
+        <p>What has historically required a laboratory instrument and sample preparation, Milk Diagnostics is developing for continuous inline deployment — capturing high-quality data at parlor throughput, at every milking event, without consumables or manual steps.</p>
+        <p>The measurement happens inline, as part of the normal milking routine. There is nothing for the operator to collect, prepare, or send away. Data is generated where the milk is, when the milking happens.</p>
+        <p>The result is a measurement model that is fundamentally different from periodic bulk tank sampling: continuous, individual, and immediate.</p>
+      </div>
+
+      <div class="tech-visual fade-up" aria-hidden="true">
+        <div class="tech-vis-label">Continuous · Cow-by-cow · Every Milking</div>
+        <svg class="datacurve-full-svg" viewBox="0 0 440 120" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="specTech" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%"   stop-color="#1449AE" stop-opacity="0.1"/>
+              <stop offset="30%"  stop-color="#F0A941" stop-opacity="0.5"/>
+              <stop offset="50%"  stop-color="#4ade80" stop-opacity="0.4"/>
+              <stop offset="70%"  stop-color="#60a5fa" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#1449AE" stop-opacity="0.1"/>
+            </linearGradient>
+          </defs>
+          <line x1="0" y1="100" x2="440" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <path d="M0,100 C15,100 25,90 40,85 C55,80 65,60 85,40 C105,20 115,12 135,15 C155,18 160,28 175,25 C190,22 200,10 215,12 C230,14 240,30 255,28 C270,26 280,15 295,17 C310,19 320,32 335,40 C350,48 360,70 380,80 C400,90 420,98 440,100 L440,120 L0,120 Z"
+                fill="url(#specTech)"/>
+          <path d="M0,100 C15,100 25,90 40,85 C55,80 65,60 85,40 C105,20 115,12 135,15 C155,18 160,28 175,25 C190,22 200,10 215,12 C230,14 240,30 255,28 C270,26 280,15 295,17 C310,19 320,32 335,40 C350,48 360,70 380,80 C400,90 420,98 440,100"
+                fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <circle cx="135" cy="15" r="3.5" fill="#F0A941"/>
+          <circle cx="215" cy="12" r="3.5" fill="#4ade80"/>
+          <circle cx="295" cy="17" r="3.5" fill="#60a5fa"/>
+        </svg>
+        <div class="tech-vis-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:#F0A941"></span>Real-time, at every milking</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#4ade80"></span>Individual cow resolution</div>
+          <div class="legend-item"><span class="legend-dot" style="background:#60a5fa"></span>No sample handling</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHAT WE MEASURE — .section.applications (cream bg)
+     Reuses .app-grid and .app-card from index.html exactly.
+     ============================================================ -->
+<section class="section applications" aria-labelledby="measure-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">What We Measure</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="measure-heading">A complete picture. One inline event.</h2>
+      <p class="lead">Every capability area is derived from the same inline measurement. No sequential sensors. No separate sampling events. The full picture, every milking.</p>
+    </div>
+
+    <div class="app-grid fade-up">
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-blue">Quality</span></div>
+        <h4>Milk Components</h4>
+        <p>Continuous, cow-by-cow component data enables real-time tracking of milk quality and ration response, instead of waiting for monthly test results to come back from the lab.</p>
+        <div class="app-card-stat">Milk Components</div>
+        <div class="app-card-stat-label">measured at every milking</div>
+        <a href="contact.html" class="app-card-link">Learn more →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-yellow">Health</span></div>
+        <h4>Udder Health</h4>
+        <p>Inline data at milking frequency surfaces early indicators of udder health issues sooner than traditional bulk tank monitoring, supporting earlier, more proactive intervention.</p>
+        <div class="app-card-stat">Udder Health</div>
+        <div class="app-card-stat-label">measured at every milking</div>
+        <a href="contact.html" class="app-card-link">Learn more →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-yellow">Reproduction</span></div>
+        <h4>Reproductive Insight</h4>
+        <p>Continuous, individual-cow data supports reproductive decision-making — helping producers act on reproductive status at the right time, without additional labor.</p>
+        <div class="app-card-stat">Reproductive Insight</div>
+        <div class="app-card-stat-label">measured at every milking</div>
+        <a href="contact.html" class="app-card-link">Learn more →</a>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card-tag"><span class="tag tag-cream">Nutrition</span></div>
+        <h4>Nutritional Efficiency</h4>
+        <p>Continuous data gives nutritionists faster feedback on ration performance and feed efficiency, enabling quicker adjustments than a monthly testing cycle allows.</p>
+        <div class="app-card-stat">Nutritional Efficiency</div>
+        <div class="app-card-stat-label">measured at every milking</div>
+        <a href="contact.html" class="app-card-link">Learn more →</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BEYOND THE LAB — .section.problem (gray-50 bg)
+     Two-col layout reusing .problem-grid / .problem-contrast.
+     ============================================================ -->
+<section class="section problem" aria-labelledby="beyond-heading">
+  <div class="container">
+    <div class="problem-grid">
+
+      <div class="problem-text fade-up">
+        <span class="eyebrow">Beyond the Laboratory</span>
+        <div class="accent-bar"></div>
+        <h2 id="beyond-heading">Traditional milk testing was never designed for the decision speed modern dairy requires.</h2>
+        <p>A monthly lab test delivers a herd average, days after the sample was collected. That model was defined by the constraints of laboratory logistics — not by what producers, nutritionists, and veterinarians actually need to make good decisions.</p>
+        <p>The opportunity is not to do lab testing faster. It is to eliminate the latency entirely — measuring inline, at milking frequency, so the data is available when the decision needs to be made.</p>
+        <p>That is what inline measurement makes possible: continuous, individual, immediate data. The engineering challenge is integration, calibration, and reliability in a commercial parlor environment. That is where Milk Diagnostics is focused.</p>
+      </div>
+
+      <div class="problem-contrast fade-up">
+        <div class="contrast-row">
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-gray" aria-hidden="true"></span>
+              Traditional Testing
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Monthly bulk tank samples
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Herd-level averages only
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Results arrive days later
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Lab visits and sample logistics
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon x" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Reactive management only
+            </div>
+          </div>
+          <div class="contrast-col">
+            <div class="contrast-col-label">
+              <span class="contrast-col-label-dot dot-blue" aria-hidden="true"></span>
+              Inline Measurement
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Every milking event
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Individual cow resolution
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Data available immediately
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              No sample handling or lab steps
+            </div>
+            <div class="contrast-item">
+              <svg class="contrast-item-icon check" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Enables proactive management
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA — .cta-section / .cta-box (verbatim from index.html)
+     ============================================================ -->
+<section class="cta-section" aria-labelledby="tech-cta-heading">
+  <div class="container">
+    <div class="cta-box fade-up">
+      <span class="eyebrow eyebrow-muted">Get in Touch</span>
+      <h2 id="tech-cta-heading">Interested in what inline milk intelligence could mean for your operation?</h2>
+      <p>We&#8217;re working with a focused group of producers, processors, and industry partners ahead of our commercial launch. If you&#8217;d like to learn more or explore an early partnership, we&#8217;d like to hear from you.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="contact.html" class="btn btn-accent btn-lg arr">Request a Conversation</a>
+        <a href="index.html"   class="btn btn-ghost  btn-lg">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER — identical to index.html
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/md-logo.svg"
+               alt="Milk Diagnostics"
+               class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">Real-time milk intelligence for modern dairy operations. Milk the cow. Milk the data.</p>
+        <p class="footer-tagline">211 St. Anthony Parkway, Ste 100<br>Minneapolis, MN 55418-4595</p>
+        <a href="contact.html" class="btn btn-primary">Request a Demo</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links" role="list">
+          <li><a href="technology.html" class="footer-link">Technology</a></li>
+          <li><a href="applications.html" class="footer-link">Applications</a></li>
+          <li><a href="insights.html" class="footer-link">Insights</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links" role="list">
+          <li><a href="insights.html" class="footer-link">Insights</a></li>
+          <li><a href="contact.html" class="footer-link">Request a Demo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Milk Diagnostics. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

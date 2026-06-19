@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Milk Diagnostics</title>
+<meta name="description" content="Technical perspectives, measurement philosophy, and operational applications surrounding continuous inline milk intelligence from Milk Diagnostics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Milk Diagnostics home">
+        <img src="assets/images/md-logo.svg" alt="Milk Diagnostics" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="technology.html"   class="nav-link">Technology</a></li>
+        <li><a href="applications.html" class="nav-link">Applications</a></li>
+        <li><a href="about.html"        class="nav-link">About</a></li>
+        <li><a href="insights.html"     class="nav-link active">Insights</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary arr">Request a Demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     Single-column. Same .hero.hero-contact + .tech-hero-inner
+     pattern used across technology.html, about.html.
+     ============================================================ -->
+<section class="hero hero-contact" aria-labelledby="insights-headline">
+  <div class="container">
+    <div class="tech-hero-inner">
+      <div class="tech-hero-text">
+        <span class="eyebrow eyebrow-yellow">Insights</span>
+        <div class="accent-bar"></div>
+        <h1 class="hero-headline" id="insights-headline">
+          Operational intelligence<br>
+          <em>from inline milk measurement.</em>
+        </h1>
+        <p class="hero-sub" style="max-width:620px">
+          Milk Diagnostics is building a continuous measurement platform for dairy operations. This section highlights technical perspectives, measurement philosophy, operational challenges, and emerging applications surrounding inline milk intelligence.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FEATURED INSIGHT
+     .section.product — white bg
+     Premium bordered panel — editorial, not blog-card
+     ============================================================ -->
+<section class="section product" aria-labelledby="featured-heading">
+  <div class="container">
+
+    <div class="insights-featured fade-up">
+      <div class="insights-featured-eyebrow">
+        <span class="eyebrow">Featured Perspective</span>
+      </div>
+      <h2 id="featured-heading">Milk already contains operational signals most systems never capture.</h2>
+      <div class="insights-featured-body">
+        <p>Most dairy measurement systems rely on intermittent sampling, delayed lab workflows, or activity-based proxies. Merlin's inline measurement changes the operational model by transforming every milking event into a continuous source of operational visibility.</p>
+        <p>Continuous access to milk component, reproductive, udder health, and nutritional efficiency signals creates a fundamentally different level of operational awareness — one that supports earlier intervention, more targeted decisions, and management informed by trends rather than snapshots.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INSIGHT CATEGORY GRID
+     .section.problem — gray-50 bg
+     Reuses .insights-grid and .insight-card from index.html.
+     No fake thumbnails, no dates, no authors.
+     ============================================================ -->
+<section class="section problem" aria-labelledby="categories-heading">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="eyebrow">Measurement Categories</span>
+      <div class="accent-bar accent-bar-center"></div>
+      <h2 id="categories-heading">Areas of focus.</h2>
+      <p class="lead">Each measurement capability opens a distinct operational application. The same inline measurement provides visibility across all four simultaneously.</p>
+    </div>
+
+    <div class="insights-grid insights-grid-4 fade-up">
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <path d="M11 3v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-yellow">Reproduction</span>
+          <h4>Reproductive Insight</h4>
+          <p>Inline measurement enables earlier physiological visibility across reproductive cycles and herd trends.</p>
+          <a href="applications.html#reproduction" class="insight-link">See the application &#8594;</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <path d="M4 14l4-8 4 5 3-3 3 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-blue">Components</span>
+          <h4>Milk Components</h4>
+          <p>Continuous monitoring of milk component and compositional shifts at milking frequency.</p>
+          <a href="applications.html#components" class="insight-link">See the application &#8594;</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M11 7v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-cream">Udder health</span>
+          <h4>Udder Health</h4>
+          <p>Longitudinal inline monitoring supports earlier identification of developing herd issues.</p>
+          <a href="applications.html#herd-health" class="insight-link">See the application &#8594;</a>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-card-top">
+          <div class="insight-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <path d="M4 9h14v9a1 1 0 01-1 1H5a1 1 0 01-1-1V9z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2 9h18M8 9V6a1 1 0 011-1h4a1 1 0 011 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="insight-card-body">
+          <span class="tag tag-blue">Processing</span>
+          <h4>Processor Intelligence</h4>
+          <p>Real-time milk component visibility creates new opportunities for milk routing, quality optimisation, and operational planning.</p>
+          <a href="applications.html#processor" class="insight-link">See the application &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PHILOSOPHY
+     .section.applications — cream bg
+     Editorial typography. Strong whitespace. No graphics.
+     ============================================================ -->
+<section class="section applications" aria-labelledby="philosophy-heading">
+  <div class="container">
+
+    <div class="product-intro">
+
+      <div class="product-intro-text fade-up">
+        <span class="eyebrow">Measurement Philosophy</span>
+        <div class="accent-bar"></div>
+        <h2 id="philosophy-heading">Built around longitudinal visibility.</h2>
+        <p>A single lab result is a snapshot. Continuous inline measurement creates historical context across milkings, lactation stages, nutrition changes, reproductive transitions, and herd-level trends.</p>
+        <p>The operational value of a measurement compounds over time. Individual readings become baseline profiles. Baseline profiles reveal trends. Trends support decisions that isolated data points cannot.</p>
+        <p>Milk Diagnostics is focused on building systems that prioritise operational continuity rather than isolated measurements — infrastructure designed for the way dairy operations actually run.</p>
+      </div>
+
+      <!-- Restrained inline visual: principle list on dark surface -->
+      <div class="tech-visual fade-up" aria-hidden="true">
+        <div class="tech-vis-label">How inline data compounds</div>
+        <div class="insights-principle-list">
+
+          <div class="insights-principle-row">
+            <div class="insights-principle-num">01</div>
+            <div class="insights-principle-text">
+              <div class="insights-principle-title">Single reading</div>
+              <div class="insights-principle-desc">A data point. Useful in isolation, but without context.</div>
+            </div>
+          </div>
+
+          <div class="insights-principle-row">
+            <div class="insights-principle-num">02</div>
+            <div class="insights-principle-text">
+              <div class="insights-principle-title">Individual baseline</div>
+              <div class="insights-principle-desc">Repeated readings form a cow-level profile. Deviation becomes visible.</div>
+            </div>
+          </div>
+
+          <div class="insights-principle-row">
+            <div class="insights-principle-num">03</div>
+            <div class="insights-principle-text">
+              <div class="insights-principle-title">Longitudinal trend</div>
+              <div class="insights-principle-desc">Profiles across milkings encode patterns — health trajectories, reproductive cycles, ration response.</div>
+            </div>
+          </div>
+
+          <div class="insights-principle-row">
+            <div class="insights-principle-num">04</div>
+            <div class="insights-principle-text">
+              <div class="insights-principle-title">Operational decision</div>
+              <div class="insights-principle-desc">Trends support targeted, earlier action — before clinical signs, before quality penalties, before the window closes.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TAGLINE — .section.technology (dark bg)
+     Reuses .apps-tagline pattern from applications + platform.
+     ============================================================ -->
+<section class="section technology apps-tagline" aria-label="Operational philosophy">
+  <div class="container">
+    <div class="apps-tagline-inner fade-up">
+      <p class="apps-tagline-kicker">Operational philosophy</p>
+      <blockquote class="apps-tagline-text">
+        Milk the cow.<br>Milk the data.
+      </blockquote>
+      <p class="apps-tagline-body">Every milking event already generates a complete operational record. Milk components, udder health, reproductive status, nutritional efficiency — captured simultaneously, at every cow, at every milking. The platform is the infrastructure to make that record operationally useful.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA — .cta-section / .cta-box verbatim pattern
+     ============================================================ -->
+<section class="cta-section" aria-labelledby="insights-cta-heading">
+  <div class="container">
+    <div class="cta-box fade-up">
+      <span class="eyebrow eyebrow-muted">Get in Touch</span>
+      <h2 id="insights-cta-heading">Interested in the platform?</h2>
+      <p>Connect with our team to discuss technical walkthroughs, pilot opportunities, or platform capabilities. We respond to every inquiry personally.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="contact.html" class="btn btn-accent btn-lg arr">Talk With Our Team</a>
+        <a href="technology.html" class="btn btn-ghost btn-lg">See the Technology</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER — verbatim from index.html
+     ============================================================ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/images/md-logo.svg" alt="Milk Diagnostics" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">Real-time milk intelligence for modern dairy operations. Milk the cow. Milk the data.</p>
+        <p class="footer-tagline">211 St. Anthony Parkway, Ste 100<br>Minneapolis, MN 55418-4595</p>
+        <a href="contact.html" class="btn btn-primary">Request a Demo</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links" role="list">
+          <li><a href="technology.html"   class="footer-link">Technology</a></li>
+          <li><a href="applications.html" class="footer-link">Applications</a></li>
+          <li><a href="insights.html"     class="footer-link">Insights</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="about.html"   class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Resources</div>
+        <ul class="footer-links" role="list">
+          <li><a href="insights.html"     class="footer-link">Insights</a></li>
+          <li><a href="contact.html"      class="footer-link">Request a Demo</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&#169; 2026 Milk Diagnostics. All rights reserved.</p>
+      <nav class="footer-legal" aria-label="Legal links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
